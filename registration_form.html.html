@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบฟอร์มลงทะเบียนเข้าร่วมโครงการ</title>
+    <script>
+        function printRegistration() {
+            const name = document.getElementById("name").value;
+            const department = document.getElementById("department").value;
+            const position = document.getElementById("position").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+            const expectation = document.getElementById("expectation").value;
+
+            const registrationDetails = `
+                ขอบคุณสำหรับการลงทะเบียน!<br><br>
+                ชื่อ-นามสกุล: ${name}<br>
+                คณะ/หน่วยงาน: ${department}<br>
+                ตำแหน่งงาน: ${position}<br>
+                เบอร์ติดต่อ: ${phone}<br>
+                อีเมล์: ${email}<br>
+                ความคาดหวังในการอบรม: ${expectation}
+            `;
+
+            document.getElementById("registration-result").innerHTML = registrationDetails;
+        }
+    </script>
+</head>
+<body>
+
+<h2>แบบฟอร์มลงทะเบียนเข้าร่วมโครงการ</h2>
+<h3>โครงการ: การยกระดับงานประจำด้วยทักษะปัญญาประดิษฐ์</h3>
+<h4>คณะวิทยาศาสตร์การแพทย์ มหาวิทยาลัยนเรศวร</h4>
+
+<form onsubmit="printRegistration(); return false;">
+    <fieldset>
+        <legend>ข้อมูลผู้เข้าร่วมโครงการ</legend>
+
+        <label for="name">ชื่อ-นามสกุล:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="department">คณะ/หน่วยงาน:</label><br>
+        <input type="text" id="department" name="department" required><br><br>
+
+        <label for="position">ตำแหน่งงาน:</label><br>
+        <input type="text" id="position" name="position" required><br><br>
+
+        <label for="phone">เบอร์ติดต่อ:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="email">อีเมล์:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>ความคาดหวังในการอบรมหัวข้อนี้</legend>
+        
+        <label for="expectation">ความคาดหวังในการอบรม:</label><br>
+        <select id="expectation" name="expectation" required>
+            <option value="">-- โปรดเลือก --</option>
+            <option value="เพิ่มความรู้ด้าน AI">เพิ่มความรู้ด้าน AI</option>
+            <option value="พัฒนาทักษะการใช้งาน AI ในงานประจำ">พัฒนาทักษะการใช้งาน AI ในงานประจำ</option>
+            <option value="เรียนรู้เทคนิคการปรับปรุง workflow">เรียนรู้เทคนิคการปรับปรุง workflow</option>
+            <option value="สร้างแรงบันดาลใจในการพัฒนาตนเอง">สร้างแรงบันดาลใจในการพัฒนาตนเอง</option>
+        </select><br><br>
+    </fieldset>
+
+    <input type="submit" value="ลงทะเบียน">
+</form>
+
+<h3>ผลการสมัคร:</h3>
+<div id="registration-result" style="border: 1px solid #ccc; padding: 10px; margin-top: 10px;"></div>
+
+</body>
+</html>
